@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# startargs
+ADMINS="michael"
+# endargs
+
+aptitude update
+aptitude -y install sudo
+
+for admin in $ADMINS; do
+  echo "adding admin $admin to group sudo"
+  adduser $admin sudo
+done

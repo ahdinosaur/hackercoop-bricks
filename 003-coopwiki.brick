@@ -1,0 +1,10 @@
+aptitude install nginx ikiwiki
+
+sudo -u hackercoop mkdir -p ~hackercoop/coopwiki-wc
+sudo -u hackercoop mkdir -p ~hackercoop/public_html/coopwiki
+sudo -u hackercoop ikiwiki-makerepo git ~hackercoop/coopwiki-wc ~hackercoop/coopwiki.git/
+ikiwiki --setup coopwiki.setup
+chown -R hackercoop:hackercoop ~hackercoop/
+
+cp coopwiki /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/coopwiki /etc/nginx/sites-enabled/

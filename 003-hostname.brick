@@ -1,0 +1,5 @@
+echo "setting new hostname"
+echo "earth" > /etc/hostname
+
+echo "restarting network services"
+invoke-rc.d hostname.sh start
