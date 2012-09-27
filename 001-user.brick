@@ -8,7 +8,7 @@ USERS="hackercoop michael kane maxb nomcopter ryan"
 rm -rf /etc/skel
 # add new user defaults
 cp -r skel /etc/
-aptitude install git
+aptitude -y install git
 git clone git://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
 for user in $USERS; do
