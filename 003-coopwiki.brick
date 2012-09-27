@@ -1,10 +1,12 @@
-aptitude install nginx ikiwiki
+aptitude -y install nginx ikiwiki fcgiwrap spawn-fcgi
 
 sudo -u hackercoop mkdir -p ~hackercoop/coopwiki-wc
 sudo -u hackercoop mkdir -p ~hackercoop/public_html/coopwiki
 sudo -u hackercoop ikiwiki-makerepo git ~hackercoop/coopwiki-wc ~hackercoop/coopwiki.git/
 ikiwiki --setup coopwiki.setup
 chown -R hackercoop:hackercoop ~hackercoop/
+
+sudo -u hackercoop spawn-fcgi -s /tmp/fcgi.socket -n -- /usr/sbin/fcgiwrap
 
 cp coopwiki /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/coopwiki /etc/nginx/sites-enabled/

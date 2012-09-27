@@ -12,7 +12,11 @@ server {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ /index.html;
-		# Uncomment to enable naxsi on this location
-		# include /etc/nginx/naxsi.rules
 	}
+	location /ikiwiki.cgi {
+		fastcgi_pass  unix:/tmp/fcgi.socket;
+		fastcgi_index ikiwiki.cgi;
+		fastcgi_param SCRIPT_FILENAME   /home/hackercoop/public_html/ikiwiki.cgi;
+		fastcgi_param  DOCUMENT_ROOT      /home/anarcat/public_html/coopwiki;
+		include /etc/nginx/fastcgi_params;
 }
