@@ -22,9 +22,9 @@ destdir: /home/hackercoop/public_html/coopwiki
 # base url to the wiki
 url: http://hackercoop.com/
 # url to the ikiwiki.cgi
-cgiurl: ''
+cgiurl: 'http://hackercoop.com/ikiwiki.cgi'
 # filename of cgi wrapper to generate
-cgi_wrapper: '/home/hackercoop/public_html/coopwiki.cgi'
+cgi_wrapper: '/home/hackercoop/public_html/ikiwiki.cgi'
 # mode for cgi_wrapper (can safely be made suid)
 cgi_wrappermode: 06755
 # rcs backend to use

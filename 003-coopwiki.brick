@@ -6,7 +6,10 @@ sudo -u hackercoop ikiwiki-makerepo git ~hackercoop/coopwiki-wc ~hackercoop/coop
 ikiwiki --setup coopwiki.setup
 chown -R hackercoop:hackercoop ~hackercoop/
 
-sudo -u hackercoop spawn-fcgi -s /tmp/fcgi.socket -n -- /usr/sbin/fcgiwrap
+sudo -u hackercoop spawn-fcgi -s /tmp/fcgi.socket -n -- /usr/sbin/fcgiwrap &
+chown www-data:www-data ~hackercoop/coopwiki-wc/.ikiwiki/lockfile
 
 cp coopwiki /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/coopwiki /etc/nginx/sites-enabled/
+
+/etc/init.d/nginx start

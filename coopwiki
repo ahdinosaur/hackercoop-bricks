@@ -14,9 +14,10 @@ server {
 		try_files $uri $uri/ /index.html;
 	}
 	location /ikiwiki.cgi {
-		fastcgi_pass  unix:/tmp/fcgi.socket;
+		fastcgi_pass  unix:/var/run/fcgiwrap.socket;
 		fastcgi_index ikiwiki.cgi;
 		fastcgi_param SCRIPT_FILENAME   /home/hackercoop/public_html/ikiwiki.cgi;
 		fastcgi_param  DOCUMENT_ROOT      /home/anarcat/public_html/coopwiki;
 		include /etc/nginx/fastcgi_params;
+	}
 }
